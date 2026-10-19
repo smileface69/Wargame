@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/Background/Home/Era_1/Base/Back_base.png" type="Texture" id=1]
+[ext_resource path="res://assets/Background/Home/Era_1/Base/Front_base.png" type="Texture" id=2]
+
+[node name="enemy_base_era_1" type="Node2D"]
+modulate = Color( 1, 0.772549, 0.772549, 1 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="Back" type="Sprite" parent="."]
+z_index = -5
+texture = ExtResource( 1 )
+flip_h = true
+
+[node name="Front" type="Sprite" parent="."]
+z_index = 10
+texture = ExtResource( 2 )
+flip_h = true

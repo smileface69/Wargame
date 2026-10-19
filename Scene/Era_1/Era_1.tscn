@@ -1,0 +1,133 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://assets/Background/Back_era_1.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Spawn/Line/Spawn_area_2.gd" type="Script" id=2]
+[ext_resource path="res://scripts/Player/Player_npc_spawn.gd" type="Script" id=3]
+[ext_resource path="res://assets/Ui/Back/Down_Ui.png" type="Texture" id=4]
+[ext_resource path="res://assets/Ui/Era_1/Card/Npc_1.png" type="Texture" id=5]
+[ext_resource path="res://assets/Ui/Era_1/Card/Npc_2.png" type="Texture" id=6]
+[ext_resource path="res://objects/base/era_1/Base_player_era_1_2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/Ui/Era_1/Card/Npc_3.png" type="Texture" id=8]
+[ext_resource path="res://objects/base/era_1/Base_player_era_1.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/Ui/Era_1/Card/Npc_4.png" type="Texture" id=10]
+[ext_resource path="res://objects/Line_ob/area_1/Line_1.tscn" type="PackedScene" id=11]
+[ext_resource path="res://objects/base/era_1/Base_player_era_1_3.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/Ui/Era_1/Card/Npc_5.png" type="Texture" id=13]
+[ext_resource path="res://scripts/Spawn/Line/Spawn_area_1.gd" type="Script" id=14]
+[ext_resource path="res://objects/Line_ob/area_1/Line_3.tscn" type="PackedScene" id=15]
+[ext_resource path="res://objects/Line_ob/area_1/Line_2.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scripts/Spawn/Line/Spawn_area_3.gd" type="Script" id=17]
+[ext_resource path="res://scripts/Era_scripts/Era_1_lvl_1.gd" type="Script" id=18]
+[ext_resource path="res://objects/enemy_npc/enemy_npc_era_1_4.tscn" type="PackedScene" id=19]
+[ext_resource path="res://objects/enemy_npc/enemy_npc_era_1_3.tscn" type="PackedScene" id=20]
+
+[node name="Era_1" type="Node2D"]
+script = ExtResource( 18 )
+
+[node name="Background" type="Sprite" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BackEra1" type="Sprite" parent="Background"]
+position = Vector2( 238, 632 )
+scale = Vector2( 1.1063, 1.1063 )
+z_index = -5
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+margin_top = 175.0
+margin_bottom = 175.0
+
+[node name="DownUi" type="Sprite" parent="CanvasLayer/UI"]
+position = Vector2( 345.842, 949.75 )
+scale = Vector2( 1.12812, 0.978572 )
+texture = ExtResource( 4 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI"]
+margin_left = 12.0
+margin_top = 698.0
+margin_right = 1028.0
+margin_bottom = 998.0
+rect_scale = Vector2( 1.11572, 1.11572 )
+
+[node name="Npc_1" type="TextureButton" parent="CanvasLayer/UI/HBoxContainer"]
+margin_right = 100.0
+margin_bottom = 300.0
+texture_normal = ExtResource( 5 )
+
+[node name="Npc_2" type="TextureButton" parent="CanvasLayer/UI/HBoxContainer"]
+margin_left = 104.0
+margin_right = 204.0
+margin_bottom = 300.0
+texture_normal = ExtResource( 6 )
+
+[node name="Npc_3" type="TextureButton" parent="CanvasLayer/UI/HBoxContainer"]
+margin_left = 208.0
+margin_right = 308.0
+margin_bottom = 300.0
+texture_normal = ExtResource( 8 )
+
+[node name="Npc_4" type="TextureButton" parent="CanvasLayer/UI/HBoxContainer"]
+margin_left = 312.0
+margin_right = 412.0
+margin_bottom = 300.0
+texture_normal = ExtResource( 10 )
+
+[node name="Npc_5" type="TextureButton" parent="CanvasLayer/UI/HBoxContainer"]
+margin_left = 416.0
+margin_right = 516.0
+margin_bottom = 300.0
+texture_normal = ExtResource( 13 )
+
+[node name="Player_npc" type="Node2D" parent="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="enemy" parent="CanvasLayer/Player_npc" instance=ExtResource( 19 )]
+position = Vector2( 351, 573 )
+
+[node name="enemy_ally" parent="CanvasLayer/Player_npc" instance=ExtResource( 20 )]
+position = Vector2( 154, 588 )
+
+[node name="Base" type="Node2D" parent="."]
+
+[node name="player_enemy_era_2" parent="Base" instance=ExtResource( 12 )]
+position = Vector2( -33, 422 )
+
+[node name="Base_player_era_1" parent="Base" instance=ExtResource( 9 )]
+position = Vector2( -33, 559 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="player_enemy_era_1" parent="Base" instance=ExtResource( 7 )]
+position = Vector2( -33, 696 )
+
+[node name="Spawn_area_1" type="Node2D" parent="."]
+position = Vector2( 27, 583 )
+script = ExtResource( 14 )
+
+[node name="Spawn_area_2" type="Node2D" parent="."]
+position = Vector2( 27, 446 )
+script = ExtResource( 2 )
+
+[node name="Spawn_area_3" type="Node2D" parent="."]
+position = Vector2( 27, 720 )
+script = ExtResource( 17 )
+
+[node name="Line_1" parent="." instance=ExtResource( 11 )]
+position = Vector2( 361, 594 )
+
+[node name="Line_2" parent="." instance=ExtResource( 16 )]
+position = Vector2( 361, 457 )
+
+[node name="Line_3" parent="." instance=ExtResource( 15 )]
+position = Vector2( 361, 731 )
+
+[connection signal="pressed" from="CanvasLayer/UI/HBoxContainer/Npc_1" to="CanvasLayer/Player_npc" method="_on_Npc_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/HBoxContainer/Npc_2" to="CanvasLayer/Player_npc" method="_on_Npc_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/HBoxContainer/Npc_3" to="CanvasLayer/Player_npc" method="_on_Npc_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/HBoxContainer/Npc_4" to="CanvasLayer/Player_npc" method="_on_Npc_4_pressed"]
